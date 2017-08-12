@@ -9,8 +9,8 @@ class Affine(Cipher):
         """Creates an instance of the class using alpha and beta values. Each letter is ciphered with the formula
         below. Cipher list is created to map the letters. Therefore, for any given index, we can map the
         alphabet to Affine cipher letters."""
-        self.a = alpha
-        self.b = beta
+        self.alpha = alpha
+        self.beta = beta
         self.alphabet = string.ascii_uppercase
         self.cipher_list = []
         for i in range(26):
