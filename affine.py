@@ -9,21 +9,23 @@ class Affine(Cipher):
         """Creates an instance of the class using alpha and beta values. Each letter is ciphered with the formula
         below. Cipher list is created to map the letters. Therefore, for any given index, we can map the
         alphabet to Affine cipher letters."""
-        self.alpha = alpha
-        self.beta = beta
-        self.alphabet = string.ascii_uppercase
+        self.a = alpha
+        self.b = beta
+        self.alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+                         'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         self.cipher_list = []
         for i in range(26):
-            self.cipher_list.append((self.alpha * i + self.beta) % 26)
+            self.cipher_list.append((self.a * i + self.b) % 26)
+        print(cipher_list)
 
     def encrypt(self,text):
         """Encrypts text entered by a user."""
         output = []
-        text = text.upper
         for char in text:
             try:
                 text_index = self.alphabet.index(char)
                 output.append(self.cipher_list[text_index])
+                print(output)
             except ValueError:
                 output.append(char)
         return ''.join(output)
