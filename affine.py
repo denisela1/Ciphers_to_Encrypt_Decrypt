@@ -14,7 +14,7 @@ class Affine(Cipher):
         self.alphabet = string.ascii_uppercase
         self.cipher_list = []
         for i in range(26):
-            self.cipher_list.append((self.a * i + self.b) % 26)
+            self.cipher_list.append((self.alpha * i + self.beta) % 26)
 
     def encrypt(self,text):
         """Encrypts text entered by a user."""
