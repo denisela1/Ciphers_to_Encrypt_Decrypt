@@ -11,16 +11,17 @@ def cipher_selection():
                                "Via Polybius: To encrypt, enter POE. To decrypt, enter POD.\n")
     """Based on the selection and user input(text), associated cipher script will run."""
     if selection == "AFE":
-        alpha = input('Enter an alpha. Available values: 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25')
-        beta = input('Enter a beta value.')
+        a = int(input('Enter an alpha. Available values: 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25'))
+        b = int(input('Enter a beta value.'))
         text = input('What is your message?\n')
-        x = Affine(alpha,beta)
+        x = Affine(a,b)
         x.encrypt(text)
     if selection == "AFD":
         alpha = input('Enter an alpha. Available values: 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25\n')
         beta = input('Enter a beta value.')
-        text = input('What is your message?\n')
-        Affine(alpha, beta)
+        x = Affine(alpha, beta)
+        text = upper(input('What is your message?\n'))
+        x.encrypt(text)
     if selection == 'ABE':
         self.text = input('What is your message?\n')
         x = Atbash()
