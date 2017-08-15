@@ -16,7 +16,6 @@ class Affine(Cipher):
         self.cipher_list = []
         for i in range(26):
             self.cipher_list.append((self.a * i + self.b) % 26)
-        print(cipher_list)
 
     def encrypt(self,text):
         """Encrypts text entered by a user."""
@@ -24,22 +23,19 @@ class Affine(Cipher):
         for char in text:
             try:
                 text_index = self.alphabet.index(char)
-                output.append(self.cipher_list[text_index])
-                print(output)
+                output.append(self.alphabet[self.cipher_list[text_index]])
             except ValueError:
                 output.append(char)
-        return ''.join(output)
+        print(''.join(output))
+
 
     def decrypt(self,text):
         """Decrypts text entered by a user"""
         output = []
-        text = text.upper
         for char in text:
             try:
-                text_index = self.cipher_list.index(char)
-                output.append(self.alphabet[text_index])
+                text_index = self.alphabet.index(char)
+                output.append(self.alphabet[self.cipher_list.index(text_index)])
             except ValueError:
                 output.append(char)
-        return ''.join(output)
-
-
+        print(''.join(output))
