@@ -39,3 +39,4 @@ class Affine(Cipher):
             except ValueError:
                 output.append(char)
         print(''.join(output))
+        
