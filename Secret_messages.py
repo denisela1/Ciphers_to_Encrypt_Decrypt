@@ -5,15 +5,15 @@ from polybius import Polybius
 
 def cipher_selection():
     """The first screen shows all the cipher options to encrypt and decrypt."""
-    selection_ed= input("To encrypt a message, press E.\n"
+    selection_ed= (input("To encrypt a message, press E.\n"
                         "To decrypt a message, press D.\n"
-                        "To quit, press Q.\n")
+                        "To quit, press Q.\n")).upper()
     if selection_ed == 'E':
-        cipher_option = input("Please select one of these cipher options:\n"
+        cipher_option = (input("Please select one of these cipher options:\n"
                                 "Affine: Press AFE\n"
                                 "Atbash: Press ABE\n"
                                 "Polybius: Press POE\n"
-                                "To quit, press Q.\n")
+                                "To quit, press Q.\n")).upper()
         if cipher_option == "AFE":
             a = int(input('Enter an alpha. Available values: 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25\n'))
             if a not in [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25]:
@@ -42,11 +42,11 @@ def cipher_selection():
             menu_back()
 
     if selection_ed == 'D':
-        cipher_option = input("Please select one of these cipher options:\n"
+        cipher_option = (input("Please select one of these cipher options:\n"
                               "Affine: Press AFD\n"
                               "Atbash: Press ABD\n"
                               "Polybius: Press POD\n"
-                              "To quit, enter Q.\n")
+                              "To quit, enter Q.\n")).upper()
         if cipher_option == "AFD":
             a = int(input('Enter an alpha. Available values: 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25\n'))
             b = int(input('Enter a beta value.\n'))
@@ -67,7 +67,7 @@ def cipher_selection():
         else:
             print('Not valid. Please try again.\n')
             menu_back()
-    if cipher_option == 'Q':
+    if selection_ed == 'Q':
         print('You quit.\n')
         os.system('clear')
     else:
@@ -75,7 +75,7 @@ def cipher_selection():
         menu_back()
 
 def menu_back():
-    y = input("To go back to the main menu, press M. To quit, press Q.\n")
+    y = (input("To go back to the main menu, press M. To quit, press Q.\n")).upper()
     if y == 'M':
         cipher_selection()
     if y == 'Q':
